@@ -2,11 +2,14 @@
 
 h1 {
   color:  $hColor;
+  @media (max-width: $smallBP) {
+    font-size: large;
+  }
 }
 
 .form__box {
   width: 50%;
-  height: 80vh;
+  min-height: 90vh;
   padding: 5px;
   background-color: $bgColorWhite;
   border-radius: $borderRadiusBoxes; 
@@ -36,7 +39,7 @@ h1 {
   width: 60%;
   height: 25px;
   outline: 0;
-  border: 1px solid $hColor;
+  border: 1px solid $bgcolorYellow;
   border-radius: $borderRadiusBoxes;
 }
 
@@ -47,7 +50,8 @@ h1 {
 }
 
 .form__input:focus {
-  border-color: $bgcolorYellow;
+  border-color: $hColor;
+  box-shadow: 0 0 4px $hColor;
 }
 
 .form__submit {
@@ -63,6 +67,9 @@ h1 {
   color: $hColor;
   background-color: $bgcolorYellow;
   transition: 0.3s ease-out;
+  @media (max-width: $smallBP) {
+    font-size: small;
+  }
 }
 
 .form__submit:hover {
