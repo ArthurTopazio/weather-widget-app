@@ -1,0 +1,72 @@
+@import './../../assets/scss/variables.scss';
+
+h1 {
+  color:  $hColor;
+}
+
+.form__box {
+  width: 50%;
+  height: 80vh;
+  padding: 5px;
+  background-color: $bgColorWhite;
+  border-radius: $borderRadiusBoxes; 
+  position: absolute;
+  top: 20px; 
+  left: 25%;
+  z-index: 50;
+  opacity: 1;
+    
+  @media (max-width: $mediumBP) {
+    width: 70%;
+    left: 15%;
+  }
+
+  @media (max-width: $smallBP) {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+.form__input {
+  font-family: $fontRoboto;
+  font-size: medium;
+  color: $hColor;
+  padding: 5px 10px;
+  margin-bottom: 2px;
+  width: 60%;
+  height: 25px;
+  outline: 0;
+  border: 1px solid $hColor;
+  border-radius: $borderRadiusBoxes;
+}
+
+.form__input::placeholder {
+  font-family: $fontPopOne;
+  font-size: small;
+  color: rgba(103, 110, 196, 0.675);
+}
+
+.form__input:focus {
+  border-color: $bgcolorYellow;
+}
+
+.form__submit {
+  font-family: $fontRoboto;
+  font-size: medium;
+  padding: 5px 10px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  width: 20%;
+  height: 41px;
+  border-radius: $borderRadiusBoxes;
+  border: none;
+  color: $hColor;
+  background-color: $bgcolorYellow;
+  transition: 0.3s ease-out;
+}
+
+.form__submit:hover {
+  background-color: $hColor;
+  color: $bgColorWhite;
+}
+

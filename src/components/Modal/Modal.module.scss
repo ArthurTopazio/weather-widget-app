@@ -1,0 +1,13 @@
+@import './../../assets/scss/variables.scss';
+
+.wrapper {
+  position: fixed;
+  background-color: $bgColorBlack;
+  opacity: 0.5; 
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+
