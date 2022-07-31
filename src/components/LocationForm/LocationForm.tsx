@@ -8,13 +8,13 @@ import style from './LocationForm.module.scss';
 
 const LocationForm: React.FC = () => {
 
-  const { search_result, search_reguest, loading, error } = usedTypedSelector(state => state.location);
+  const { search_result } = usedTypedSelector(state => state.location);
 
-  const { setLocationRequest, FetchLocationAction } = useActions()
+  const { FetchLocationAction } = useActions();
 
   const [value, setValue] = useState('');
 
-  useEffect(() => { FetchLocationAction(value) }, [value])
+  useEffect(() => { FetchLocationAction(value) }, [value]);
 
   const changeHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     setValue(event.target.value)
@@ -22,7 +22,7 @@ const LocationForm: React.FC = () => {
 
   let elements = search_result
     ? search_result.map(item => <LocationFormElement location_data={item} key={item.id} />)
-    : <h2>search result</h2>
+    : <h2>search result</h2>;
 
   return (
     <div className={style.form__box}>
@@ -37,6 +37,6 @@ const LocationForm: React.FC = () => {
       {elements}
     </div>
   )
-}
+};
 
 export default LocationForm;

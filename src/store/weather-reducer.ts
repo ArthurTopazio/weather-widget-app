@@ -1,11 +1,16 @@
-import { LocationState, LocationAction, LocationActionTypes } from '../types/location-types';
+import { WeatherState, WeatherAction, WeatherActionTypes } from '../types/weather-types';
 
-const initialState: LocationState = {
-  search_result: [],
+const initialState: WeatherState = {
+  location_data: {
+    name: '',
+    latitude: null,
+    longitude: null,
+    timezone: ''
+  },
   loading: false,
-  search_reguest: '',
+  weather_data: [],
   error: '',
-}
+};
 
 //https://api.open-meteo.com/v1/forecast?latitude=42.7105&longitude=23.3238&hourly=temperature_2m&daily=weathercode&timezone=America/Chicago&start_date=2022-06-30&end_date=2022-07-06
 /* 0	Clear sky
@@ -21,17 +26,17 @@ const initialState: LocationState = {
 85, 86	Snow showers slight and heavy
 95 *	Thunderstorm: Slight or moderate
 96, 99 *	Thunderstorm with slight and heavy hail */
-export const locationReducer = (state: LocationState = initialState, action: LocationAction): LocationState => {
+export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
-    case LocationActionTypes.FETCH_LOCATION:
+    case WeatherActionTypes.FETCH_WEATHER_DATA:
       return { ...state, loading: true }
-    case LocationActionTypes.FETCH_LOCATION_SUCCESS:
-      return { ...state, loading: false, search_result: action.payload }
-    case LocationActionTypes.FETCH_LOCATION_ERROR:
+    case WeatherActionTypes.FETCH_WEATHER_SUCCESS:
+      return { ...state, loading: false, weather_data: action.payload }
+    case WeatherActionTypes.FETCH_WEATHER_ERROR:
       return { ...state, loading: false, error: action.payload }
-    case LocationActionTypes.SET_LOCATION_SEARCH_REQUEST:
-      return { ...state, search_reguest: action.payload }
+    case WeatherActionTypes.FETCH_LOCATION_DATA:
+      return { ...state, location_data: action.payload }
     default:
       return state
   }
-}
+};
