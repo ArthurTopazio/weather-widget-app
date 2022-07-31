@@ -16,8 +16,8 @@ export const locationAPI = {
 };
 
 export interface weatherRequest {
-  latitude: number
-  longitude: number
+  latitude: number | null
+  longitude: number | null
   timezone: string
   start: string
   end: string
@@ -27,6 +27,6 @@ export const weatherAPI = {
   getWeatherWeekData({ latitude, longitude, timezone, start, end }: weatherRequest) {
     return instanceWeather
       .get(`?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&daily=weathercode&timezone=${timezone}&start_date=${start}&end_date=${end}`)
-      .then(response => { return response.data });
+      .then(response => { return response });
   },
 };
