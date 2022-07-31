@@ -7,6 +7,10 @@ h1 {
   }
 }
 
+h2 {
+  color: $hColor;
+}
+
 .form__box {
   width: 50%;
   min-height: 90vh;
@@ -36,7 +40,7 @@ h1 {
   color: $hColor;
   padding: 5px 10px;
   margin-bottom: 2px;
-  width: 60%;
+  width: 80%;
   height: 25px;
   outline: 0;
   border: 1px solid $bgcolorYellow;
@@ -53,27 +57,3 @@ h1 {
   border-color: $hColor;
   box-shadow: 0 0 4px $hColor;
 }
-
-.form__submit {
-  font-family: $fontRoboto;
-  font-size: medium;
-  padding: 5px 10px;
-  margin-bottom: 2px;
-  margin-left: 10px;
-  width: 20%;
-  height: 41px;
-  border-radius: $borderRadiusBoxes;
-  border: none;
-  color: $hColor;
-  background-color: $bgcolorYellow;
-  transition: 0.3s ease-out;
-  @media (max-width: $smallBP) {
-    font-size: small;
-  }
-}
-
-.form__submit:hover {
-  background-color: $hColor;
-  color: $bgColorWhite;
-}
-
