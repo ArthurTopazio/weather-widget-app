@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import { useActions } from "../../hooks/useAction";
 import { usedTypedSelector } from "../../hooks/usedTypedSelector";
@@ -7,9 +7,10 @@ import { usedTypedSelector } from "../../hooks/usedTypedSelector";
 import LocationForm from "../LocationForm/LocationForm";
 import Modal from "../Modal/Modal";
 
-import style from './Widget.module.scss';
+import style from './WeatherWidget.module.scss';
+import WeatherWidgetHeader from "../WeatherWidgetHeader/WeatherWidgetHeader";
 
-const Widget: React.FC = () => {
+const WeatherWidget: React.FC = () => {
 
   const { error, location_data, loading, loaded, weather_data } = usedTypedSelector(state => state.weather);
 
@@ -17,21 +18,35 @@ const Widget: React.FC = () => {
 
   const { FetchWeatherAction } = useActions();
 
-  let start = moment().format().slice(0, 10);
-  let end = moment().add(6, 'days').format().slice(0, 10);
+  let start = timezone ? moment().tz(timezone).format().slice(0, 10) : '';
+  let end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
+  let time = timezone ? moment().tz(timezone).format().slice(11, 16) : '';
+
+  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
 
   useEffect(() => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
   }, [name])
-
-  console.log(weather_data)
 
   return (
     <>
       {!name ? <Modal><LocationForm /></Modal>
         : <div className={style.body}>
           <div className={style.wrapper}>
-            <div>
+            <WeatherWidgetHeader {...{ name, time, timezone }} />
+            <div className={style.today__data}>today data/ temperature now / picture 30%</div>
+            <div className={style.dushboard}>dushboard for tuday 30%</div>
+            <div className={style.week__cards} >cards/7types wor a week 30%</div>
+          </div>
+        </div>}
+    </>
+  )
+};
+
+export default WeatherWidget;
+
+/*
+<div>
               {`name: ${name}, latitude: ${latitude}, longitude: ${longitude}, timezone: ${timezone}`}
               {<><p>start date: {start} </p>
                 <p>end date: {end} </p></>}
@@ -41,10 +56,4 @@ const Widget: React.FC = () => {
               daily hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.time.splice(0, 23) : null}</p>
               daily temperature by hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 23) : null}</p>
             </div>
-          </div>
-        </div>}
-    </>
-  )
-}
-
-export default Widget;
+*/
