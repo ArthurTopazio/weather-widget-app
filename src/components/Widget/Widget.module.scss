@@ -2,17 +2,29 @@
 
 .body {
   margin: 0;
-  background: linear-gradient(135deg, #dfac14 10%, #c8ea02, #0cdef2);
+  background: linear-gradient(-45deg, #1257be, $bgColorWhite);
+  background-size: 400% 400%;
   height: 100vh;
   background-attachment: fixed;
-  object-fit: cover;
-  object-position: center;
+  animation: gradient 15s ease-in-out infinite;
 };
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 .wrapper {
   padding: 10px;
-  width: 90%;
-  min-height: 90vh;
+  width: 50%;
+  height: 90vh;
   margin: auto;
   top: 25px;
   background-color: rgb(255, 255, 255);
@@ -22,4 +34,10 @@
   border-radius: 20px;
   opacity: 0.8;
   backdrop-filter: blur(8px);
+  @media (max-width: $mediumBP) {
+    width: 75%;
+  }
+  @media (max-width: $smallBP) {
+    width: 90%;
+  }
 };

@@ -8,6 +8,7 @@ const initialState: WeatherState = {
     timezone: ''
   },
   loading: false,
+  loaded: false,
   weather_data: [],
   error: '',
 };
@@ -31,7 +32,7 @@ export const weatherReducer = (state: WeatherState = initialState, action: Weath
     case WeatherActionTypes.FETCH_WEATHER_DATA:
       return { ...state, loading: true }
     case WeatherActionTypes.FETCH_WEATHER_SUCCESS:
-      return { ...state, loading: false, weather_data: action.payload }
+      return { ...state, loading: false, loaded: true, weather_data: action.payload }
     case WeatherActionTypes.FETCH_WEATHER_ERROR:
       return { ...state, loading: false, error: action.payload }
     case WeatherActionTypes.FETCH_LOCATION_DATA:

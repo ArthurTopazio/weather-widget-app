@@ -2,14 +2,15 @@ export interface LocationData {
   name: string,
   latitude: null | number,
   longitude: null | number,
-  timezone: string
+  timezone: string,
 };
 
 export interface WeatherState {
   location_data: LocationData,
   loading: boolean,
   weather_data: any[],
-  error: null | string
+  loaded: boolean,
+  error: null | string,
 };
 
 export enum WeatherActionTypes {

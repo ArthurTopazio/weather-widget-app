@@ -11,7 +11,7 @@ import style from './Widget.module.scss';
 
 const Widget: React.FC = () => {
 
-  const { error, location_data, loading, weather_data } = usedTypedSelector(state => state.weather);
+  const { error, location_data, loading, loaded, weather_data } = usedTypedSelector(state => state.weather);
 
   const { name, latitude, longitude, timezone } = location_data;
 
@@ -24,28 +24,25 @@ const Widget: React.FC = () => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
   }, [name])
 
-  // let copy = JSON.parse(JSON.stringify(weather_data))
-
-  // console.log(copy.hourly)
+  console.log(weather_data)
 
   return (
     <>
-      {!name ? <Modal><LocationForm /></Modal> : <div className={style.body}>
-        <div className={style.wrapper}>
-          <div>
-            {name ? <p>located</p> : <p>unlocated</p>}
-            {`name: ${name}, latitude: ${latitude}, longitude: ${longitude}, timezone: ${timezone}`}
-            {<><p>start date: {start} </p>
-              <p>end date: {end} </p></>}
+      {!name ? <Modal><LocationForm /></Modal>
+        : <div className={style.body}>
+          <div className={style.wrapper}>
+            <div>
+              {`name: ${name}, latitude: ${latitude}, longitude: ${longitude}, timezone: ${timezone}`}
+              {<><p>start date: {start} </p>
+                <p>end date: {end} </p></>}
+            </div>
+            <div>daily time <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).daily.time : null}</p>
+              daily weathercode <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).daily.weathercode : null}</p>
+              daily hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.time.splice(0, 23) : null}</p>
+              daily temperature by hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 23) : null}</p>
+            </div>
           </div>
-          <div>daily time <p>{/*copy.daily.time*/}</p>
-            daily weathercode <p>{/*copy.daily.weathercode*/}</p>
-            daily temperature by hour today <p>{/*copy.hourly.time.splice(0, 23)*/}</p>
-            daily temperature by hour today <p>{/*copy.hourly.temperature_2m.splice(0, 23)*/}</p>
-          </div>
-        </div>
-      </div>}
-
+        </div>}
     </>
   )
 }
