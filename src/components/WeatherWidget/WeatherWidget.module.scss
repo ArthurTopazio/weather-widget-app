@@ -2,7 +2,7 @@
 
 .body {
   margin: 0;
-  background: linear-gradient(-45deg, #1257be, $bgColorWhite);
+  background: linear-gradient(135deg, #eaf20a 10%, #ffbb00, #ff8000);
   background-size: 400% 400%;
   height: 100vh;
   background-attachment: fixed;
@@ -23,7 +23,7 @@
 
 .wrapper {
   padding: 10px;
-  width: 50%;
+  width: 400px;
   height: 90vh;
   margin: auto;
   top: 25px;
@@ -38,31 +38,13 @@
   border-radius: 20px;
   opacity: 0.8;
   backdrop-filter: blur(8px);
-  @media (max-width: $mediumBP) {
-    width: 75%;
-  }
   @media (max-width: $smallBP) {
     width: 90%;
   }
 };
 
-.today__data {
-  width: 85%;
-  height: 30%;
-  background-color: rgb(177, 219, 11);
-}
-
-.dushboard {
-  width: 100%;
-  height: 30%;
-  background-color: #ffff87;
-  opacity: 0.8;
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-}
-
 .week__cards {
   width: 85%;
   height: 30%;
   background-color: rgb(219, 11, 11);
-}
+};

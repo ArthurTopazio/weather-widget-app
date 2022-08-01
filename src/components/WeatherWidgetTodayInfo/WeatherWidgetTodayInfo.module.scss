@@ -1,0 +1,35 @@
+@import './../../assets/scss/variables.scss';
+
+.today__data {
+  width: 85%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+};
+
+.today__data_temperature {
+  margin: 5% auto;
+  width: 90%;
+  height: 90%;
+  color: $hColor;
+  font-size: 13vh;
+};
+
+.today__data_img {
+  position: absolute;
+  height: 150px;
+  right: 18%;
+  top: 16%;
+  opacity: 0.8;
+}
+
+.dushboard {
+  width: 100%;
+  height: 30%;
+  background-color: #ffff87;
+  opacity: 0.8;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}

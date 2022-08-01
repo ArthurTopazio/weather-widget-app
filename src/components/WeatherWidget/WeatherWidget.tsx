@@ -9,6 +9,7 @@ import Modal from "../Modal/Modal";
 
 import style from './WeatherWidget.module.scss';
 import WeatherWidgetHeader from "../WeatherWidgetHeader/WeatherWidgetHeader";
+import WeatherWidgetTodayInfo from "../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo";
 
 const WeatherWidget: React.FC = () => {
 
@@ -22,8 +23,6 @@ const WeatherWidget: React.FC = () => {
   let end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
   let time = timezone ? moment().tz(timezone).format().slice(11, 16) : '';
 
-  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
-
   useEffect(() => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
   }, [name])
@@ -33,10 +32,18 @@ const WeatherWidget: React.FC = () => {
       {!name ? <Modal><LocationForm /></Modal>
         : <div className={style.body}>
           <div className={style.wrapper}>
-            <WeatherWidgetHeader {...{ name, time, timezone }} />
-            <div className={style.today__data}>today data/ temperature now / picture 30%</div>
-            <div className={style.dushboard}>dushboard for tuday 30%</div>
-            <div className={style.week__cards} >cards/7types wor a week 30%</div>
+            {loaded
+              ? <>
+                <WeatherWidgetHeader {...{ name, timezone }} />
+                <WeatherWidgetTodayInfo
+                  {...{
+                    time,
+                    weathercode: JSON.parse(JSON.stringify(weather_data)).daily.weathercode.splice(0, 1),
+                    temperatureByHours: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 24)
+                  }} />
+                <div className={style.week__cards} >cards/7types wor a week 30%</div>
+              </>
+              : <p>loading...</p>}
           </div>
         </div>}
     </>

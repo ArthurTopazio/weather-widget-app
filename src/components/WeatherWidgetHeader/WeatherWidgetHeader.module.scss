@@ -3,5 +3,19 @@
 .header {
   width: 85%;
   height: 10%;
-  background-color: green;
+};
+
+.location__name {
+  margin: 5px auto;
+  color: $hColor;
+};
+
+.location__name img {
+  margin-right: 5px;
+};
+
+.location__date {
+  margin: 0 auto;
+  font-family: $fontRoboto;
+  color: $hColor;
 };

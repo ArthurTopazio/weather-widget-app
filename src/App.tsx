@@ -1,4 +1,4 @@
-import WeatherWidget from './components/Widget/WeatherWidget';
+import WeatherWidget from './components/WeatherWidget/WeatherWidget';
 
 import './App.css';
 
