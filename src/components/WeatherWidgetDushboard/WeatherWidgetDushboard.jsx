@@ -1,26 +1,37 @@
-import React from "react";
 import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
-const WeatherWidgetDushboard = () => {
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const WeatherWidgetDushboard = (props) => {
 
   const lineChartData = {
-    labels: ["October", "November", "December"],
+    labels: ["1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12AM",
+      "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM", "12PM",],
     datasets: [
       {
-        data: [8137119, 9431691, 10266674],
-        label: "Infected",
-        borderColor: "#3333ff",
-        fill: true,
-        lineTension: 0.5
+        data: [...props.data],
+        borderColor: "#06498d",
+        fill: false,
+        lineTension: 0.4,
       },
-      {
-        data: [1216410, 1371390, 1477380],
-        label: "Deaths",
-        borderColor: "#ff3333",
-        backgroundColor: "rgba(255, 0, 0, 0.5)",
-        fill: true,
-        lineTension: 0.5
-      }
     ]
   };
 
@@ -30,15 +41,35 @@ const WeatherWidgetDushboard = () => {
       width={160}
       height={60}
       options={{
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        elements: {
+          point: {
+            radius: 0
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+
+          y: {
+            grid: {
+              display: false,
+            },
+          },
+        },
         title: {
-          display: true,
-          text: "COVID-19 Cases of Last 6 Months",
-          fontSize: 20
+          display: false,
         },
         legend: {
-          display: true, //Is the legend shown?
-          position: "top" //Position of the legend.
-        }
+          display: false
+        },
       }}
       data={lineChartData}
     />

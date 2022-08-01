@@ -26,7 +26,7 @@ const WeatherWidgetTodayInfo: React.FC<WeatherTodayInfo> = (props: WeatherTodayI
         <img className={style.today__data_img} src={mainTheme} alt="weather picture" />
       </div>
       <div className={style.dushboard}>
-        <WeatherWidgetDushboard />
+        <WeatherWidgetDushboard data={temperatureByHours} />
       </div>
     </>
   )

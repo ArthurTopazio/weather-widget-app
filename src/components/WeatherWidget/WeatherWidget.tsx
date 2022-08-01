@@ -10,6 +10,7 @@ import Modal from "../Modal/Modal";
 import style from './WeatherWidget.module.scss';
 import WeatherWidgetHeader from "../WeatherWidgetHeader/WeatherWidgetHeader";
 import WeatherWidgetTodayInfo from "../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo";
+import WeatherWidgetCards from "../WeatherWidgetCards/WeatherWidgetCards";
 
 const WeatherWidget: React.FC = () => {
 
@@ -41,7 +42,7 @@ const WeatherWidget: React.FC = () => {
                     weathercode: JSON.parse(JSON.stringify(weather_data)).daily.weathercode.splice(0, 1),
                     temperatureByHours: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 24)
                   }} />
-                <div className={style.week__cards} >cards/7types wor a week 30%</div>
+                <WeatherWidgetCards />
               </>
               : <p>loading...</p>}
           </div>
