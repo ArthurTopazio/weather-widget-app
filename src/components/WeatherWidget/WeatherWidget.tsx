@@ -26,7 +26,9 @@ const WeatherWidget: React.FC = () => {
 
   useEffect(() => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
-  }, [name])
+  }, [name]);
+
+  console.log(weather_data);
 
   return (
     <>

@@ -1,5 +1,64 @@
+@import './../../assets/scss/variables.scss';
+
 .week__cards {
-  width: 95%;
+  width: 100%;
   height: 30%;
-  background-color: rgb(219, 11, 11);
+  padding: 5px;
+};
+
+.week__cards_text {
+  position: relative;
+  left: -34%;
+  top: -18px;
+  color: $hColor;
+  font-size: smaller;
+};
+
+.week__cards_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 90%;
+  position: relative;
+  top: -23px;
+};
+ 
+.week__cards_item {
+  width: 14%;
+  background-color: #bfdaf6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow:  -5px 6px 16px #6ba5e1;
+};
+
+.cards__item_day {
+  margin: auto;
+  margin-top: 12px;
+  height: 25%;
+  font-size: x-small;
+  color: $hColor;
+  text-shadow: -3px 3px 4px #6ba5e1;
+};
+
+.cards__item_img {
+  height: 30%;
+  filter: drop-shadow(-1mm 1mm 2mm #2599f8);
+};
+
+.cards__item_tempDay {
+  margin: auto;
+  height: 22%;
+  font-family: $fontRoboto;
+  text-shadow: -3px 3px 4px $bgColorBlack;
+  color: $bgColorWhite;
+};
+
+.cards__item_tempNight {
+  margin: auto;
+  height: 22%;
+  font-family: $fontRoboto;
+  text-shadow: -3px 3px 4px #6ba5e1;
+  color: $bgColorBlack;
 };
