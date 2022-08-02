@@ -1,4 +1,5 @@
 import style from './WeatherWidgetCards.module.scss';
+import moment from 'moment';
 
 import image from '../../assets/vectors/main_theme.png';
 
@@ -8,41 +9,52 @@ interface CardProps {
   temperatureByHour: any[],
 };
 
-const Card = () => {
+const Card: React.FC<CardProps> = (props: CardProps) => {
+
+  const { weatherCode, day, temperatureByHour } = props;
 
   return (
     <div className={style.week__cards_item}>
-      <p className={style.cards__item_day} >Mon</p>
+      <p className={style.cards__item_day} >
+        {moment(day).format('dddd').slice(0, 3)}
+      </p>
       <img className={style.cards__item_img} src={image} alt="pict" />
-      <p className={style.cards__item_tempDay}>30</p>
-      <p className={style.cards__item_tempNight}>16</p>
+      <p className={style.cards__item_tempDay}>
+        {`${temperatureByHour[12]}`}
+      </p>
+      <p className={style.cards__item_tempNight}>
+        {`${temperatureByHour[3]}`}
+      </p>
     </div>
   )
 };
 
 interface CardsProps {
-  weatherCodes: any[], // from daily weathercodes
-  days: any[], // from daily time
-  hourlyTemperature: any[], //from hourly temperature_2m
+  weatherCodes: any[],
+  days: any[],
+  hourlyTemperature: any[],
 };
 
+const WeatherWidgetCards: React.FC<CardsProps> = (props: CardsProps) => {
 
-const WeatherWidgetCards = () => {
+  const { weatherCodes, days, hourlyTemperature } = props;
+
+  const cardsElements = days.map((item, index) => <Card key={item} {
+    ...{
+      day: item,
+      weatherCode: weatherCodes[index],
+      temperatureByHour: [...hourlyTemperature.splice(0, 24)],
+    }
+  } />)
 
   return (
     <div className={style.week__cards} >
       <p className={style.week__cards_text}>7-Day Forecast</p>
       <div className={style.week__cards_items}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {cardsElements}
       </div>
     </div>
   )
-}
+};
 
-export default WeatherWidgetCards
+export default WeatherWidgetCards;

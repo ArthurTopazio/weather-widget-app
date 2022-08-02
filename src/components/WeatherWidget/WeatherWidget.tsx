@@ -44,7 +44,11 @@ const WeatherWidget: React.FC = () => {
                     weathercode: JSON.parse(JSON.stringify(weather_data)).daily.weathercode.splice(0, 1),
                     temperatureByHours: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 24)
                   }} />
-                <WeatherWidgetCards />
+                <WeatherWidgetCards {...{
+                  weatherCodes: JSON.parse(JSON.stringify(weather_data)).daily.weathercode,
+                  days: JSON.parse(JSON.stringify(weather_data)).daily.time,
+                  hourlyTemperature: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m,
+                }} />
               </>
               : <p>loading...</p>}
           </div>
@@ -54,16 +58,3 @@ const WeatherWidget: React.FC = () => {
 };
 
 export default WeatherWidget;
-
-/*
-<div>
-              {`name: ${name}, latitude: ${latitude}, longitude: ${longitude}, timezone: ${timezone}`}
-              {<><p>start date: {start} </p>
-                <p>end date: {end} </p></>}
-            </div>
-            <div>daily time <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).daily.time : null}</p>
-              daily weathercode <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).daily.weathercode : null}</p>
-              daily hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.time.splice(0, 23) : null}</p>
-              daily temperature by hour today <p>{loaded ? JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 23) : null}</p>
-            </div>
-*/
