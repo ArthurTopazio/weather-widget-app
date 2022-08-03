@@ -13,7 +13,6 @@ const initialState: WeatherState = {
   error: '',
 };
 
-//https://api.open-meteo.com/v1/forecast?latitude=42.7105&longitude=23.3238&hourly=temperature_2m&daily=weathercode&timezone=America/Chicago&start_date=2022-06-30&end_date=2022-07-06
 /* 0	Clear sky
 1, 2, 3	Mainly clear, partly cloudy, and overcast
 45, 48	Fog and depositing rime fog

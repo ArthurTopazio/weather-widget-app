@@ -10,13 +10,8 @@ const Modal: React.FC<ModalProps> = ({ children }: ModalProps) => {
 
   return (
     <>
-      <div
-        className={style.wrapper}
-      >
-      </div>
-      <div>
-        {children}
-      </div>
+      <div className={style.wrapper} />
+      {children}
     </>
   )
 };
