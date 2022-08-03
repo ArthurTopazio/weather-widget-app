@@ -6,12 +6,11 @@ import { weatherReducer } from './weather-reducer';
 
 let reducers = combineReducers({
   location: locationReducer,
-  //auth: 'd',
   weather: weatherReducer,
-})
+});
 
-export type RootState = ReturnType<typeof reducers>
+export type RootState = ReturnType<typeof reducers>;
 
-let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware))
+let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));
 
-export default store
+export default store;

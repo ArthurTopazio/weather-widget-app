@@ -1,6 +1,5 @@
 @import './../../assets/scss/variables.scss';
 
-
 .wrapper {
   font-family: $fontPopOne;
   font-size: small;
@@ -18,11 +17,11 @@
   @media (max-width: $largeBP) {
     font-size: x-small;
   }
-}
+};
 
 .wrapper:hover {
   background-color: $hColor;
   color: $bgColorWhite;
   box-shadow: 0 0 5px $hColor;
-}
+};
 

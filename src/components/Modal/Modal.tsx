@@ -4,9 +4,10 @@ import style from './Modal.module.scss';
 
 interface ModalProps {
   children: React.ReactNode
-}
+};
 
 const Modal: React.FC<ModalProps> = ({ children }: ModalProps) => {
+
   return (
     <>
       <div
@@ -18,6 +19,6 @@ const Modal: React.FC<ModalProps> = ({ children }: ModalProps) => {
       </div>
     </>
   )
-}
+};
 
 export default Modal;

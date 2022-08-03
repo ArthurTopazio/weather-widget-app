@@ -16,12 +16,12 @@ export const locationAPI = {
 };
 
 export interface weatherRequest {
-  latitude: number | null
-  longitude: number | null
-  timezone: string
-  start: string
-  end: string
-}
+  latitude: number | null,
+  longitude: number | null,
+  timezone: string,
+  start: string,
+  end: string,
+};
 
 export const weatherAPI = {
   getWeatherWeekData({ latitude, longitude, timezone, start, end }: weatherRequest) {

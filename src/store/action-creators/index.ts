@@ -1,5 +1,5 @@
-import * as LocationActionCreator from './locationAction';
-import * as WeatherActionCreator from './weatherAction';
+import * as LocationActionCreator from './LocationActionCreator';
+import * as WeatherActionCreator from './WeatherActionCreator';
 
 export default {
   ...LocationActionCreator,

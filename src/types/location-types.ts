@@ -3,35 +3,28 @@ export interface LocationState {
   loading: boolean,
   error: null | string,
   search_reguest: string,
-}
+};
 
 export enum LocationActionTypes {
-  FETCH_LOCATION = 'FETCH_LOCATION',
-  FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS',
-  FETCH_LOCATION_ERROR = 'FETCH_LOCATION_ERROR',
-  SET_LOCATION_SEARCH_REQUEST = 'SET_LOCATION_SEARCH_REQUEST',
-}
+  FetchLocation = 'FETCH_LOCATION',
+  FetchLocationSuccess = 'FETCH_LOCATION_SUCCESS',
+  FetchLocationError = 'FETCH_LOCATION_ERROR',
+};
 
 interface FetchLocationAction {
-  type: LocationActionTypes.FETCH_LOCATION
-}
+  type: LocationActionTypes.FetchLocation
+};
 
 interface FetchLocationSuccessAction {
-  type: LocationActionTypes.FETCH_LOCATION_SUCCESS,
+  type: LocationActionTypes.FetchLocationSuccess,
   payload: any[],
-}
+};
 
 interface FetchLocationErrorAction {
-  type: LocationActionTypes.FETCH_LOCATION_ERROR,
+  type: LocationActionTypes.FetchLocationError,
   payload: string,
-}
-
-interface SetLocationSearchRequestAction {
-  type: LocationActionTypes.SET_LOCATION_SEARCH_REQUEST,
-  payload: string,
-}
+};
 
 export type LocationAction = FetchLocationAction
   | FetchLocationSuccessAction
-  | FetchLocationErrorAction
-  | SetLocationSearchRequestAction
+  | FetchLocationErrorAction;

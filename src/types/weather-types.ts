@@ -14,28 +14,28 @@ export interface WeatherState {
 };
 
 export enum WeatherActionTypes {
-  FETCH_LOCATION_DATA = 'FETCH_LOCATION_DATA',
-  FETCH_WEATHER_DATA = 'FETCH_WEATHER_DATA',
-  FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS',
-  FETCH_WEATHER_ERROR = 'FETCH_WEATHER_ERROR',
+  FetchLocationData = 'FETCH_LOCATION_DATA',
+  FetchWeatherData = 'FETCH_WEATHER_DATA',
+  FetchWeatherSuccess = 'FETCH_WEATHER_SUCCESS',
+  FetchWeatherError = 'FETCH_WEATHER_ERROR',
 };
 
 interface FetchLocationDataAction {
-  type: WeatherActionTypes.FETCH_LOCATION_DATA,
-  payload: LocationData
+  type: WeatherActionTypes.FetchLocationData,
+  payload: LocationData,
 };
 
 interface FetchWeatherAction {
-  type: WeatherActionTypes.FETCH_WEATHER_DATA,
+  type: WeatherActionTypes.FetchWeatherData,
 };
 
 interface FetchWeatherSuccessAction {
-  type: WeatherActionTypes.FETCH_WEATHER_SUCCESS,
+  type: WeatherActionTypes.FetchWeatherSuccess,
   payload: any[],
 };
 
 interface FetchWeatherErrorAction {
-  type: WeatherActionTypes.FETCH_WEATHER_ERROR,
+  type: WeatherActionTypes.FetchWeatherError,
   payload: string,
 };
 

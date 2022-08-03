@@ -1,34 +1,23 @@
-import React, { useEffect } from "react";
-import moment from 'moment-timezone';
+import React from "react";
 
-import { useActions } from "../../hooks/useAction";
-import { usedTypedSelector } from "../../hooks/usedTypedSelector";
+import { useWeatherWidget } from "../../hooks/useWeatherWidget";
 
 import LocationForm from "../LocationForm/LocationForm";
 import Modal from "../Modal/Modal";
-
-import style from './WeatherWidget.module.scss';
 import WeatherWidgetHeader from "../WeatherWidgetHeader/WeatherWidgetHeader";
 import WeatherWidgetTodayInfo from "../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo";
 import WeatherWidgetCards from "../WeatherWidgetCards/WeatherWidgetCards";
+import Loader from "../Loader/Loader";
+
+import style from './WeatherWidget.module.scss';
+
 
 const WeatherWidget: React.FC = () => {
 
-  const { error, location_data, loading, loaded, weather_data } = usedTypedSelector(state => state.weather);
-
-  const { name, latitude, longitude, timezone } = location_data;
-
-  const { FetchWeatherAction } = useActions();
-
-  let start = timezone ? moment().tz(timezone).format().slice(0, 10) : '';
-  let end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
-  let time = timezone ? moment().tz(timezone).format().slice(11, 16) : '';
-
-  useEffect(() => {
-    if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
-  }, [name]);
-
-  console.log(weather_data);
+  const {
+    name, timezone, time, loaded, weathercode,
+    temperatureByHours, weatherCodes, days, hourlyTemperature
+  } = useWeatherWidget();
 
   return (
     <>
@@ -39,18 +28,11 @@ const WeatherWidget: React.FC = () => {
               ? <>
                 <WeatherWidgetHeader {...{ name, timezone }} />
                 <WeatherWidgetTodayInfo
-                  {...{
-                    time,
-                    weathercode: JSON.parse(JSON.stringify(weather_data)).daily.weathercode.splice(0, 1),
-                    temperatureByHours: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m.splice(0, 24)
-                  }} />
-                <WeatherWidgetCards {...{
-                  weatherCodes: JSON.parse(JSON.stringify(weather_data)).daily.weathercode,
-                  days: JSON.parse(JSON.stringify(weather_data)).daily.time,
-                  hourlyTemperature: JSON.parse(JSON.stringify(weather_data)).hourly.temperature_2m,
-                }} />
+                  {...{ time, weathercode, temperatureByHours }} />
+                <WeatherWidgetCards
+                  {...{ weatherCodes, days, hourlyTemperature }} />
               </>
-              : <p>loading...</p>}
+              : <Loader />}
           </div>
         </div>}
     </>

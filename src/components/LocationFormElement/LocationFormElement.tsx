@@ -31,7 +31,7 @@ const LocationFormElement: React.FC<LFElement> = (props: LFElement) => {
     >
       <p>{`city:  ${name}, country:  ${country}, timezone:  ${timezone}`}</p>
     </div>
-  )
+  );
 };
 
 export default LocationFormElement;

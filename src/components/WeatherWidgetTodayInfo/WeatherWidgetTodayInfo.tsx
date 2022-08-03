@@ -1,21 +1,19 @@
-import style from './WeatherWidgetTodayInfo.module.scss';
-
-import mainTheme from '../../assets/vectors/main_theme.png';
 import WeatherWidgetDushboard from '../WeatherWidgetDushboard/WeatherWidgetDushboard';
+
+import style from './WeatherWidgetTodayInfo.module.scss';
+import mainTheme from '../../assets/vectors/main_theme.png';
 
 interface WeatherTodayInfo {
   time: string,
   weathercode: number | string,
   temperatureByHours: any[],
-}
+};
 
 const WeatherWidgetTodayInfo: React.FC<WeatherTodayInfo> = (props: WeatherTodayInfo) => {
 
   const { time, weathercode, temperatureByHours } = props;
 
   const hour = +time.slice(0, 2);
-
-  console.log(time, weathercode, temperatureByHours)
 
   return (
     <>
@@ -29,7 +27,7 @@ const WeatherWidgetTodayInfo: React.FC<WeatherTodayInfo> = (props: WeatherTodayI
         <WeatherWidgetDushboard data={temperatureByHours} />
       </div>
     </>
-  )
+  );
 };
 
 export default WeatherWidgetTodayInfo;

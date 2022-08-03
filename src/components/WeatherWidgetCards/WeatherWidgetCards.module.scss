@@ -12,6 +12,9 @@
   top: -18px;
   color: $hColor;
   font-size: smaller;
+  @media (max-width: $smallBP) {
+    font-size: x-small;
+  }
 };
 
 .week__cards_items {
@@ -22,7 +25,7 @@
   position: relative;
   top: -23px;
 };
- 
+
 .week__cards_item {
   width: 14%;
   background-color: #bfdaf6;
@@ -32,6 +35,10 @@
   border-radius: 20px;
   box-shadow:  -5px 6px 16px #6ba5e1;
 };
+
+.today {
+  background-color: #4092eb;
+}
 
 .cards__item_day {
   margin: auto;
@@ -46,6 +53,10 @@
   height: 30%;
   filter: drop-shadow(-1mm 1mm 2mm #2599f8);
 };
+
+.img__today {
+  filter: drop-shadow(-1mm 1mm 2mm #bfdaf6);
+}
 
 .cards__item_tempDay {
   margin: auto;

@@ -1,7 +1,6 @@
 import moment from 'moment-timezone';
 
 import style from './WeatherWidgetHeader.module.scss';
-
 import locationVector from '../../assets/vectors/other/location-vector.png';
 
 interface WidgetHeader {
@@ -23,7 +22,7 @@ const WeatherWidgetHeader: React.FC<WidgetHeader> = (props: WidgetHeader) => {
         {moment().tz(timezone).format('LLLL')}
       </p>
     </div>
-  )
+  );
 };
 
 export default WeatherWidgetHeader;

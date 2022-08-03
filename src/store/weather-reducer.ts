@@ -29,15 +29,15 @@ const initialState: WeatherState = {
 96, 99 *	Thunderstorm with slight and heavy hail */
 export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
-    case WeatherActionTypes.FETCH_WEATHER_DATA:
+    case WeatherActionTypes.FetchWeatherData:
       return { ...state, loading: true }
-    case WeatherActionTypes.FETCH_WEATHER_SUCCESS:
+    case WeatherActionTypes.FetchWeatherSuccess:
       return { ...state, loading: false, loaded: true, weather_data: action.payload }
-    case WeatherActionTypes.FETCH_WEATHER_ERROR:
+    case WeatherActionTypes.FetchWeatherError:
       return { ...state, loading: false, error: action.payload }
-    case WeatherActionTypes.FETCH_LOCATION_DATA:
+    case WeatherActionTypes.FetchLocationData:
       return { ...state, location_data: action.payload }
     default:
       return state
-  }
+  };
 };

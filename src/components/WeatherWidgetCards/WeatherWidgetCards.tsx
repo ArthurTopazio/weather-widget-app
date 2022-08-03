@@ -1,29 +1,31 @@
-import style from './WeatherWidgetCards.module.scss';
 import moment from 'moment';
 
+import style from './WeatherWidgetCards.module.scss';
 import image from '../../assets/vectors/main_theme.png';
 
 interface CardProps {
   weatherCode: string,
   day: string,
   temperatureByHour: any[],
+  today?: boolean,
 };
 
 const Card: React.FC<CardProps> = (props: CardProps) => {
 
-  const { weatherCode, day, temperatureByHour } = props;
+  const { weatherCode, day, temperatureByHour, today = false } = props;
 
   return (
-    <div className={style.week__cards_item}>
+    <div className={`${style.week__cards_item} ${today ? style.today : null}`}>
       <p className={style.cards__item_day} >
         {moment(day).format('dddd').slice(0, 3)}
       </p>
-      <img className={style.cards__item_img} src={image} alt="pict" />
+      <img className={`${style.cards__item_img} ${today ? style.img__today : null}`}
+        src={image} alt="pict" />
       <p className={style.cards__item_tempDay}>
         {`${temperatureByHour[12]}`}
       </p>
       <p className={style.cards__item_tempNight}>
-        {`${temperatureByHour[3]}`}
+        {`${temperatureByHour[4]}`}
       </p>
     </div>
   )
@@ -42,6 +44,7 @@ const WeatherWidgetCards: React.FC<CardsProps> = (props: CardsProps) => {
   const cardsElements = days.map((item, index) => <Card key={item} {
     ...{
       day: item,
+      today: (index == 0) ? true : false,
       weatherCode: weatherCodes[index],
       temperatureByHour: [...hourlyTemperature.splice(0, 24)],
     }

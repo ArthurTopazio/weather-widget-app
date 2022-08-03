@@ -1,15 +1,12 @@
 import WeatherWidget from './components/WeatherWidget/WeatherWidget';
 
-import './App.css';
-
-function App() {
+const App: React.FC = () => {
 
   return (
-    <div className="App">
-      {/* hello intro */}
+    <div>
       <WeatherWidget />
     </div>
   );
-}
+};
 
 export default App;

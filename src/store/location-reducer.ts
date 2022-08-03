@@ -5,19 +5,17 @@ const initialState: LocationState = {
   loading: false,
   search_reguest: '',
   error: '',
-}
+};
 
 export const locationReducer = (state: LocationState = initialState, action: LocationAction): LocationState => {
   switch (action.type) {
-    case LocationActionTypes.FETCH_LOCATION:
+    case LocationActionTypes.FetchLocation:
       return { ...state, loading: true }
-    case LocationActionTypes.FETCH_LOCATION_SUCCESS:
+    case LocationActionTypes.FetchLocationSuccess:
       return { ...state, loading: false, search_result: action.payload }
-    case LocationActionTypes.FETCH_LOCATION_ERROR:
+    case LocationActionTypes.FetchLocationError:
       return { ...state, loading: false, error: action.payload }
-    case LocationActionTypes.SET_LOCATION_SEARCH_REQUEST:
-      return { ...state, search_reguest: action.payload }
     default:
       return state
-  }
-}
+  };
+};

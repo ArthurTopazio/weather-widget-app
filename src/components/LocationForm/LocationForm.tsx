@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useActions } from "../../hooks/useAction";
 import { usedTypedSelector } from "../../hooks/usedTypedSelector";
+
 import LocationFormElement from "../LocationFormElement/LocationFormElement";
 
 import style from './LocationForm.module.scss';
@@ -9,7 +10,6 @@ import style from './LocationForm.module.scss';
 const LocationForm: React.FC = () => {
 
   const { search_result } = usedTypedSelector(state => state.location);
-
   const { FetchLocationAction } = useActions();
 
   const [value, setValue] = useState('');
@@ -20,7 +20,7 @@ const LocationForm: React.FC = () => {
     setValue(event.target.value)
   };
 
-  let elements = search_result
+  let locationElements = search_result
     ? search_result.map(item => <LocationFormElement location_data={item} key={item.id} />)
     : <h2>search result</h2>;
 
@@ -34,9 +34,9 @@ const LocationForm: React.FC = () => {
         value={value}
         onChange={changeHandler}
       />
-      {elements}
+      {locationElements}
     </div>
-  )
+  );
 };
 
 export default LocationForm;

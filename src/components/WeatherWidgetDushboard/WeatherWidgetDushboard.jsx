@@ -57,7 +57,6 @@ const WeatherWidgetDushboard = (props) => {
               display: false,
             },
           },
-
           y: {
             grid: {
               display: false,
