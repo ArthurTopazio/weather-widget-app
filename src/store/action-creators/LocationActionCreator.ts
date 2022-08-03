@@ -11,7 +11,7 @@ export const FetchLocationAction = (location: string) => {
 
     try {
       dispatch({ type: LocationActionTypes.FetchLocation });
-      const response = await locationAPI.getLocations(location);
+      const response = await locationAPI.getData(location);
       dispatch({ type: LocationActionTypes.FetchLocationSuccess, payload: response.results });
     } catch (e: unknown) {
       const error = e as AxiosError;

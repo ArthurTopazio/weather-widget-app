@@ -1,19 +1,22 @@
 import axios from 'axios';
 
-const instanceLocation = axios.create({
-  baseURL: 'https://geocoding-api.open-meteo.com/v1/search'
-});
+class API {
+  URL: string = '';
+  instance() {
+    let url = this.URL
+    return axios.create({ baseURL: url })
+  }
+  async getData(request: string) {
+    return await this.instance().get(`?name=${request}`).then((response: any) => { return response.data });
+  }
+};
+
+export const locationAPI = new API();
+locationAPI.URL = 'https://geocoding-api.open-meteo.com/v1/search';
 
 const instanceWeather = axios.create({
   baseURL: 'https://api.open-meteo.com/v1/forecast'
 });
-
-export const locationAPI = {
-  getLocations(location: string) {
-    return instanceLocation.get(`?name=${location}`)
-      .then(response => { return response.data });
-  },
-};
 
 export interface weatherRequest {
   latitude: number | null,
@@ -30,3 +33,8 @@ export const weatherAPI = {
       .then(response => { return response });
   },
 };
+
+
+
+
+
