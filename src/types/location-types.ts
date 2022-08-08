@@ -1,14 +1,13 @@
 export interface LocationState {
-  search_result: any[],
+  searchResult: any[],
   loading: boolean,
   error: null | string,
-  search_reguest: string,
 };
 
 export enum LocationActionTypes {
-  FetchLocation = 'FETCH_LOCATION',
-  FetchLocationSuccess = 'FETCH_LOCATION_SUCCESS',
-  FetchLocationError = 'FETCH_LOCATION_ERROR',
+  FetchLocation = "FETCH_LOCATION",
+  FetchLocationSuccess = "FETCH_LOCATION_SUCCESS",
+  FetchLocationError = "FETCH_LOCATION_ERROR",
 };
 
 interface FetchLocationAction {

@@ -1,16 +1,30 @@
-import { WeatherState, WeatherAction, WeatherActionTypes } from '../types/weather-types';
+import { WeatherState, WeatherAction, WeatherActionTypes } from "../types/weather-types";
 
 const initialState: WeatherState = {
-  location_data: {
-    name: '',
+  locationData: {
+    name: "",
     latitude: null,
     longitude: null,
-    timezone: ''
+    timezone: ""
   },
   loading: false,
-  loaded: false,
-  weather_data: [],
-  error: '',
+  weatherData: [],
+  error: "",
+};
+
+export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {
+  switch (action.type) {
+    case WeatherActionTypes.FetchWeatherData:
+      return { ...state, loading: true }
+    case WeatherActionTypes.FetchWeatherSuccess:
+      return { ...state, loading: false, weatherData: action.payload }
+    case WeatherActionTypes.FetchWeatherError:
+      return { ...state, loading: false, error: action.payload }
+    case WeatherActionTypes.FetchLocationData:
+      return { ...state, locationData: action.payload }
+    default:
+      return state
+  };
 };
 
 /* 0	Clear sky
@@ -26,17 +40,3 @@ const initialState: WeatherState = {
 85, 86	Snow showers slight and heavy
 95 *	Thunderstorm: Slight or moderate
 96, 99 *	Thunderstorm with slight and heavy hail */
-export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {
-  switch (action.type) {
-    case WeatherActionTypes.FetchWeatherData:
-      return { ...state, loading: true }
-    case WeatherActionTypes.FetchWeatherSuccess:
-      return { ...state, loading: false, loaded: true, weather_data: action.payload }
-    case WeatherActionTypes.FetchWeatherError:
-      return { ...state, loading: false, error: action.payload }
-    case WeatherActionTypes.FetchLocationData:
-      return { ...state, location_data: action.payload }
-    default:
-      return state
-  };
-};

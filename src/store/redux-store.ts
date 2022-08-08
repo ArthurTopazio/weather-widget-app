@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import thunkMiddleware from "redux-thunk";
 
 import { locationReducer } from "./location-reducer";
-import { weatherReducer } from './weather-reducer';
+import { weatherReducer } from "./weather-reducer";
 
 let reducers = combineReducers({
   location: locationReducer,

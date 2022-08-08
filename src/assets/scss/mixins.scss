@@ -1,5 +1,5 @@
 //all basic css interfaces
-@import './variables.scss';
+@import "./variables.scss";
 
 @mixin flex($dirrection, $justify, $align, $wrap) {
   display: flex;

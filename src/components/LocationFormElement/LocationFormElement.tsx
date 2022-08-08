@@ -1,6 +1,6 @@
 import { useActions } from "../../hooks/useAction";
 
-import style from './LocationFormElement.module.scss';
+import style from "./LocationFormElement.module.scss";
 
 interface locationDataForm {
   id: number
@@ -11,12 +11,12 @@ interface locationDataForm {
   country: string
 };
 
-interface LFElement {
+interface ElementTPD {
   location_data: locationDataForm
   key: number
 };
 
-const LocationFormElement: React.FC<LFElement> = (props: LFElement) => {
+const LocationFormElement: React.FC<ElementTPD> = (props) => {
 
   const { setLocationData } = useActions();
 
@@ -29,7 +29,7 @@ const LocationFormElement: React.FC<LFElement> = (props: LFElement) => {
       className={style.wrapper}
       onClick={handleClick}
     >
-      <p>{`city:  ${name}, country:  ${country}, timezone:  ${timezone}`}</p>
+      <p>{`City:  ${name}, Country:  ${country}, Timezone:  ${timezone}`}</p>
     </div>
   );
 };

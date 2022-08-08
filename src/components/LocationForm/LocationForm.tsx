@@ -5,14 +5,14 @@ import { usedTypedSelector } from "../../hooks/usedTypedSelector";
 
 import LocationFormElement from "../LocationFormElement/LocationFormElement";
 
-import style from './LocationForm.module.scss';
+import style from "./LocationForm.module.scss";
 
 const LocationForm: React.FC = () => {
 
-  const { search_result } = usedTypedSelector(state => state.location);
+  const { searchResult } = usedTypedSelector(state => state.location);
   const { FetchLocationAction } = useActions();
 
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   useEffect(() => { FetchLocationAction(value) }, [value]);
 
@@ -20,9 +20,9 @@ const LocationForm: React.FC = () => {
     setValue(event.target.value)
   };
 
-  let locationElements = search_result
-    ? search_result.map(item => <LocationFormElement location_data={item} key={item.id} />)
-    : <h2>search result</h2>;
+  let locationElements = searchResult
+    ? searchResult.map(item => <LocationFormElement location_data={item} key={item.id} />)
+    : <h2>Search result</h2>;
 
   return (
     <div className={style.form__box}>

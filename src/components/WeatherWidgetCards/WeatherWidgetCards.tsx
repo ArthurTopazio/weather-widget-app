@@ -1,23 +1,21 @@
-import moment from 'moment';
+import moment from "moment";
 
-import style from './WeatherWidgetCards.module.scss';
-import image from '../../assets/vectors/main_theme.png';
+import style from "./WeatherWidgetCards.module.scss";
+import image from "../../assets/vectors/main_theme.png";
 
-interface CardProps {
+interface CardTPD {
   weatherCode: string,
   day: string,
   temperatureByHour: any[],
   today?: boolean,
 };
 
-const Card: React.FC<CardProps> = (props: CardProps) => {
-
-  const { weatherCode, day, temperatureByHour, today = false } = props;
+const Card: React.FC<CardTPD> = ({ weatherCode, day, temperatureByHour, today = false }) => {
 
   return (
     <div className={`${style.week__cards_item} ${today ? style.today : null}`}>
       <p className={style.cards__item_day} >
-        {moment(day).format('dddd').slice(0, 3)}
+        {moment(day).format("dddd").slice(0, 3)}
       </p>
       <img className={`${style.cards__item_img} ${today ? style.img__today : null}`}
         src={image} alt="pict" />
@@ -31,15 +29,13 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
   )
 };
 
-interface CardsProps {
+interface CardsTPD {
   weatherCodes: any[],
   days: any[],
   hourlyTemperature: any[],
 };
 
-const WeatherWidgetCards: React.FC<CardsProps> = (props: CardsProps) => {
-
-  const { weatherCodes, days, hourlyTemperature } = props;
+const WeatherWidgetCards: React.FC<CardsTPD> = ({ weatherCodes, days, hourlyTemperature }) => {
 
   const cardsElements = days.map((item, index) => <Card key={item} {
     ...{

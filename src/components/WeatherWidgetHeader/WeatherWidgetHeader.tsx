@@ -1,16 +1,14 @@
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 
-import style from './WeatherWidgetHeader.module.scss';
-import locationVector from '../../assets/vectors/other/location-vector.png';
+import style from "./WeatherWidgetHeader.module.scss";
+import locationVector from "../../assets/vectors/other/location-vector.png";
 
-interface WidgetHeader {
+interface WidgetHeaderTPD {
   name: any,
   timezone: any,
 };
 
-const WeatherWidgetHeader: React.FC<WidgetHeader> = (props: WidgetHeader) => {
-
-  const { name, timezone } = props;
+const WeatherWidgetHeader: React.FC<WidgetHeaderTPD> = ({ name, timezone }) => {
 
   return (
     <div className={style.header} >
@@ -19,7 +17,7 @@ const WeatherWidgetHeader: React.FC<WidgetHeader> = (props: WidgetHeader) => {
         {name}
       </p>
       <p className={style.location__date} >
-        {moment().tz(timezone).format('LLLL')}
+        {moment().tz(timezone).format("LLLL")}
       </p>
     </div>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 
-import style from './Modal.module.scss';
+import style from "./Modal.module.scss";
 
-interface ModalProps {
+interface ModalTPD {
   children: React.ReactNode
 };
 
-const Modal: React.FC<ModalProps> = ({ children }: ModalProps) => {
+const Modal: React.FC<ModalTPD> = ({ children }) => {
 
   return (
     <>

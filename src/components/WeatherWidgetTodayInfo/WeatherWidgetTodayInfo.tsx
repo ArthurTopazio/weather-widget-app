@@ -1,17 +1,15 @@
-import WeatherWidgetDushboard from '../WeatherWidgetDushboard/WeatherWidgetDushboard';
+import WeatherWidgetDushboard from "../WeatherWidgetDushboard/WeatherWidgetDushboard";
 
-import style from './WeatherWidgetTodayInfo.module.scss';
-import mainTheme from '../../assets/vectors/main_theme.png';
+import style from "./WeatherWidgetTodayInfo.module.scss";
+import mainTheme from "../../assets/vectors/main_theme.png";
 
-interface WeatherTodayInfo {
+interface TodayInfoTPD {
   time: string,
   weathercode: number | string,
   temperatureByHours: any[],
 };
 
-const WeatherWidgetTodayInfo: React.FC<WeatherTodayInfo> = (props: WeatherTodayInfo) => {
-
-  const { time, weathercode, temperatureByHours } = props;
+const WeatherWidgetTodayInfo: React.FC<TodayInfoTPD> = ({ time, weathercode, temperatureByHours }) => {
 
   const hour = +time.slice(0, 2);
 

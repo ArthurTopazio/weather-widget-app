@@ -4,14 +4,12 @@ interface ErrorMessageTPD {
   error: string | null,
 };
 
-const ErrorMessage: React.FC<ErrorMessageTPD> = (props: ErrorMessageTPD) => {
-
-  const { error } = props;
+const ErrorMessage: React.FC<ErrorMessageTPD> = ({ error }) => {
 
   return (
-    <div>
+    <>
       {error}
-    </div>
+    </>
   )
 };
 

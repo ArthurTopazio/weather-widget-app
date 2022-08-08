@@ -1,9 +1,8 @@
-import { AxiosError } from 'axios';
-
-import { locationAPI } from '../../api/api';
-import { LocationAction, LocationActionTypes } from '../../types/location-types';
-
+import { AxiosError } from "axios";
 import { Dispatch } from "redux";
+
+import { cities } from "../../api/loadCities";
+import { LocationAction, LocationActionTypes } from "../../types/location-types";
 
 export const FetchLocationAction = (location: string) => {
 
@@ -11,8 +10,8 @@ export const FetchLocationAction = (location: string) => {
 
     try {
       dispatch({ type: LocationActionTypes.FetchLocation });
-      const response = await locationAPI.getData(location);
-      dispatch({ type: LocationActionTypes.FetchLocationSuccess, payload: response.results });
+      const response = await cities.getCities(location);
+      dispatch({ type: LocationActionTypes.FetchLocationSuccess, payload: response.data?.results });
     } catch (e: unknown) {
       const error = e as AxiosError;
       dispatch({
