@@ -3,7 +3,9 @@ import WeatherWidget from "./components/WeatherWidget/WeatherWidget";
 const App: React.FC = () => {
 
   return (
-    <WeatherWidget />
+    <>
+      <WeatherWidget />
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class LoadCities {
+class LocationApi {
   public getCities
   constructor(url: string) {
 
@@ -9,4 +9,4 @@ class LoadCities {
   }
 };
 
-export const cities = new LoadCities("https://geocoding-api.open-meteo.com/v1/search?name=")
+export const locationApi = new LocationApi("https://geocoding-api.open-meteo.com/v1/search?name=");
