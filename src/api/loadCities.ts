@@ -1,7 +1,7 @@
 import axios from "axios";
 
-class CitiesApi {
-  getCities
+class LoadCities {
+  public getCities
   constructor(url: string) {
 
     this.getCities = async (city: string) =>
@@ -9,4 +9,4 @@ class CitiesApi {
   }
 };
 
-export const cities = new CitiesApi("https://geocoding-api.open-meteo.com/v1/search?name=")
+export const cities = new LoadCities("https://geocoding-api.open-meteo.com/v1/search?name=")
