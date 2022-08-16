@@ -1,8 +1,8 @@
-import { AxiosError } from "axios";
-import { Dispatch } from "redux";
+import { AxiosError } from 'axios';
+import { Dispatch } from 'redux';
 
-import { locationApi } from "../../api/locationApi";
-import { LocationAction, LocationActionTypes } from "../../types/location-types";
+import { locationApi } from '../../api/locationApi';
+import { LocationAction, LocationActionTypes } from '../../types/location-types';
 
 export const FetchLocationAction = (location: string) => {
 

@@ -1,9 +1,9 @@
-import { LocationState, LocationAction, LocationActionTypes } from "../types/location-types";
+import { LocationState, LocationAction, LocationActionTypes } from '../types/location-types';
 
 const initialState: LocationState = {
   searchResult: [],
   loading: false,
-  error: "",
+  error: '',
 };
 
 export const locationReducer = (state: LocationState = initialState, action: LocationAction): LocationState => {

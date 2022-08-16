@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
+import querystring from 'querystring';
 
-const querystring = require('querystring');
-const BASE_URL = "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m&daily=weathercode";
+const BASE_URL = 'https://api.open-meteo.com/v1/forecast?hourly=temperature_2m&daily=weathercode';
 
 export interface weatherRequest {
   latitude: number | null,
@@ -20,7 +20,7 @@ class LoadWeather {
       start,
       end
     })
-    return await axios.get(str)
+    return await axios.get(str);
   }
 };
 

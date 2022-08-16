@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import moment from "moment-timezone";
+import { useEffect } from 'react';
+import moment from 'moment-timezone';
 
-import { usedTypedSelector } from "./usedTypedSelector";
-import { useActions } from "./useAction";
+import { usedTypedSelector } from './usedTypedSelector';
+import { useActions } from './useAction';
 
 export const useWeatherWidget = () => {
 
@@ -14,9 +14,9 @@ export const useWeatherWidget = () => {
 
   const { name, latitude, longitude, timezone } = locationData;
 
-  const start = timezone ? moment().tz(timezone).format().slice(0, 10) : "";
-  const end = timezone ? moment().tz(timezone).add(6, "days").format().slice(0, 10) : "";
-  const time = timezone ? moment().tz(timezone).format().slice(11, 16) : "";
+  const start = timezone ? moment().tz(timezone).format().slice(0, 10) : '';
+  const end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
+  const time = timezone ? moment().tz(timezone).format().slice(11, 16) : '';
 
   useEffect(() => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }

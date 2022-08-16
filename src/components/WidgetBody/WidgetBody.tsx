@@ -1,11 +1,11 @@
-import { useWeatherWidget } from "../../hooks/useWeatherWidget";
+import { useWeatherWidget } from '../../hooks/useWeatherWidget';
 
-import WeatherWidgetHeader from "../WeatherWidgetHeader/WeatherWidgetHeader";
-import WeatherWidgetTodayInfo from "../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo";
-import WeatherWidgetCards from "../WeatherWidgetCards/WeatherWidgetCards";
-import Loader from "../Loader/Loader";
+import WeatherWidgetHeader from '../WeatherWidgetHeader/WeatherWidgetHeader';
+import WeatherWidgetTodayInfo from '../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo';
+import WeatherWidgetCards from '../WeatherWidgetCards/WeatherWidgetCards';
+import Loader from '../UI/Loader/Loader';
 
-import style from "./WidgetBody.module.scss";
+import style from './WidgetBody.module.scss';
 
 const WidgetBody: React.FC = () => {
 

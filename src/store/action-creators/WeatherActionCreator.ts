@@ -1,8 +1,8 @@
-import { Dispatch } from "redux";
-import { AxiosError } from "axios";
+import { Dispatch } from 'redux';
+import { AxiosError } from 'axios';
 
-import { WeatherAction, WeatherActionTypes, LocationData } from "../../types/weather-types";
-import { weather, weatherRequest } from "../../api/weatherApi";
+import { WeatherAction, WeatherActionTypes, LocationData } from '../../types/weather-types';
+import { weather, weatherRequest } from '../../api/weatherApi';
 
 export const FetchWeatherAction = (locationData: weatherRequest) => {
   return async (dispatch: Dispatch<WeatherAction>) => {

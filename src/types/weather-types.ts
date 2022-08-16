@@ -13,10 +13,10 @@ export interface WeatherState {
 };
 
 export enum WeatherActionTypes {
-  FetchLocationData = "FETCH_LOCATION_DATA",
-  FetchWeatherData = "FETCH_WEATHER_DATA",
-  FetchWeatherSuccess = "FETCH_WEATHER_SUCCESS",
-  FetchWeatherError = "FETCH_WEATHER_ERROR",
+  FetchLocationData = 'FETCH_LOCATION_DATA',
+  FetchWeatherData = 'FETCH_WEATHER_DATA',
+  FetchWeatherSuccess = 'FETCH_WEATHER_SUCCESS',
+  FetchWeatherError = 'FETCH_WEATHER_ERROR',
 };
 
 interface FetchLocationDataAction {

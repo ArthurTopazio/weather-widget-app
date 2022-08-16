@@ -1,6 +1,6 @@
-import { useActions } from "../../hooks/useAction";
+import { useActions } from '../../hooks/useAction';
 
-import style from "./LocationFormElement.module.scss";
+import style from './LocationFormElement.module.scss';
 
 interface locationDataForm {
   id: number

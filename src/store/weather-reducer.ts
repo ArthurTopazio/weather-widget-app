@@ -1,15 +1,15 @@
-import { WeatherState, WeatherAction, WeatherActionTypes } from "../types/weather-types";
+import { WeatherState, WeatherAction, WeatherActionTypes } from '../types/weather-types';
 
 const initialState: WeatherState = {
   locationData: {
-    name: "",
+    name: '',
     latitude: null,
     longitude: null,
-    timezone: ""
+    timezone: ''
   },
   loading: false,
   weatherData: [],
-  error: "",
+  error: '',
 };
 
 export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {

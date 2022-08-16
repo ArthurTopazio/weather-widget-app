@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import style from "./Modal.module.scss";
+import style from './Modal.module.scss';
 
 interface ModalTPD {
   children: React.ReactNode

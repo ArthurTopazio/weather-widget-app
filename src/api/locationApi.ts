@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 class LocationApi {
   public getCities
@@ -9,4 +9,4 @@ class LocationApi {
   }
 };
 
-export const locationApi = new LocationApi("https://geocoding-api.open-meteo.com/v1/search?name=");
+export const locationApi = new LocationApi('https://geocoding-api.open-meteo.com/v1/search?name=');

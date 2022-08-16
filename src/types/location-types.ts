@@ -5,9 +5,9 @@ export interface LocationState {
 };
 
 export enum LocationActionTypes {
-  FetchLocation = "FETCH_LOCATION",
-  FetchLocationSuccess = "FETCH_LOCATION_SUCCESS",
-  FetchLocationError = "FETCH_LOCATION_ERROR",
+  FetchLocation = 'FETCH_LOCATION',
+  FetchLocationSuccess = 'FETCH_LOCATION_SUCCESS',
+  FetchLocationError = 'FETCH_LOCATION_ERROR',
 };
 
 interface FetchLocationAction {
