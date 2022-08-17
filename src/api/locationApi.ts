@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-class LocationApi {
-  public getCities
-  constructor(url: string) {
-
-    this.getCities = async (city: string) =>
-      await axios.create({ baseURL: url }).get(`${url}${city}`)
+export default class LocationApi {
+  static async getCities(city: string) {
+    const response = await axios.get('https://geocoding-api.open-meteo.com/v1/search', {
+      params: {
+        name: city
+      }
+    });
+    return response;
   }
 };
-
-export const locationApi = new LocationApi('https://geocoding-api.open-meteo.com/v1/search?name=');
