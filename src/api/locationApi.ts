@@ -6,7 +6,7 @@ export default class LocationApi {
       params: {
         name: city
       }
-    });
-    return response;
+    })
+    return response
   }
 };

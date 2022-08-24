@@ -20,7 +20,7 @@ export default class WeatherApi {
         start,
         end
       }
-    });
-    return response;
+    })
+    return response
   }
 };
