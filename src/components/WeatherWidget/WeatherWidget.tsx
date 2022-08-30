@@ -8,11 +8,11 @@ import WidgetBody from '../WidgetBody/WidgetBody';
 
 const WeatherWidget: React.FC = () => {
 
-  const { name } = useWeatherWidget();
+  const { isLocated } = useWeatherWidget();
 
   return (
     <>
-      {!name ? <Modal><LocationForm /></Modal> : <WidgetBody />}
+      {isLocated ? <WidgetBody /> : <Modal><LocationForm /></Modal>}
     </>
   )
 };

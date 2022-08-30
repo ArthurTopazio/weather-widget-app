@@ -12,7 +12,7 @@ export const useWeatherWidget = () => {
     error, locationData, loading, weatherData
   } = usedTypedSelector(state => state.weather);
 
-  const { name, latitude, longitude, timezone } = locationData;
+  const { name, latitude, longitude, timezone, isLocated } = locationData;
 
   const start = timezone ? moment().tz(timezone).format().slice(0, 10) : '';
   const end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
@@ -33,7 +33,7 @@ export const useWeatherWidget = () => {
   }
 
   return {
-    error, name, timezone, time, loading, weathercode,
+    error, name, timezone, time, loading, weathercode, isLocated,
     temperatureByHours, weatherCodes, days, hourlyTemperature
   };
 };

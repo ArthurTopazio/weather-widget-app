@@ -5,12 +5,13 @@ import useDebounce from '../../hooks/useDebounce';
 import { usedTypedSelector } from '../../hooks/usedTypedSelector';
 
 import LocationFormElement from '../LocationFormElement/LocationFormElement';
+import Loader from '../UI/Loader/Loader';
 
 import style from './LocationForm.module.scss';
 
 const LocationForm: React.FC = () => {
 
-  const { searchResult } = usedTypedSelector(state => state.location);
+  const { searchResult, loading, error } = usedTypedSelector(state => state.location);
   const { FetchLocationAction } = useActions();
   const debounceFetchLocation = useDebounce(FetchLocationAction, 500);
 
@@ -36,7 +37,7 @@ const LocationForm: React.FC = () => {
         value={value}
         onChange={changeHandler}
       />
-      {locationElements}
+      {loading ? <Loader variant='a' /> : locationElements}
     </div>
   );
 };

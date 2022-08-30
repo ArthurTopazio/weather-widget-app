@@ -3,6 +3,7 @@ export interface LocationData {
   latitude: null | number,
   longitude: null | number,
   timezone: string,
+  isLocated: boolean
 };
 
 export interface WeatherState {

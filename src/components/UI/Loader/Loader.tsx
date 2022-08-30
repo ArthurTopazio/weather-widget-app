@@ -1,11 +1,22 @@
 import React from 'react';
 
-const Loader: React.FC = () => {
+import s from './Loader.module.scss';
+
+type LoaderVariant = 'a' | 'b';
+
+interface LoaderTPD {
+  variant: LoaderVariant
+};
+
+const Loader: React.FC<LoaderTPD> = ({ variant }) => {
 
   return (
-    <>
-      LOADING...
-    </>
+    <div
+      className={s.ldsRipple}
+      style={variant === 'b' ? { left: 0 } : {}}>
+      <div></div>
+      <div></div>
+    </div>
   )
 };
 

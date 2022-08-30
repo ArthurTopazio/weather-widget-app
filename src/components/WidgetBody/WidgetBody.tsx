@@ -29,7 +29,7 @@ const WidgetBody: React.FC = () => {
   return (
     <div className={style.body}>
       <div className={style.wrapper}>
-        {days ? <Body /> : <Loader />}
+        {days ? <Body /> : <Loader variant='b' />}
       </div>
     </div>
   )

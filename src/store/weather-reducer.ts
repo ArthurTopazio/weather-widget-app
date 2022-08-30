@@ -5,7 +5,8 @@ const initialState: WeatherState = {
     name: '',
     latitude: null,
     longitude: null,
-    timezone: ''
+    timezone: '',
+    isLocated: false
   },
   loading: false,
   weatherData: [],
