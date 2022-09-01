@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import moment from 'moment-timezone';
 
 import { usedTypedSelector } from './usedTypedSelector';
 import { useActions } from './useAction';
+import { getWeek } from '../utils/getWeek';
+import { weatherDataDestruct } from '../utils/weatherDataDestruct';
 
 export const useWeatherWidget = () => {
 
@@ -13,24 +14,19 @@ export const useWeatherWidget = () => {
   } = usedTypedSelector(state => state.weather);
 
   const { name, latitude, longitude, timezone, isLocated } = locationData;
-
-  const start = timezone ? moment().tz(timezone).format().slice(0, 10) : '';
-  const end = timezone ? moment().tz(timezone).add(6, 'days').format().slice(0, 10) : '';
-  const time = timezone ? moment().tz(timezone).format().slice(11, 16) : '';
+  const { start, end, time } = getWeek(timezone);
 
   useEffect(() => {
     if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
   }, [name]);
 
-  let weathercode, temperatureByHours, weatherCodes, days, hourlyTemperature;
-
-  if (Object.keys(weatherData).length > 0) {
-    weathercode = JSON.parse(JSON.stringify(weatherData)).daily.weathercode.splice(0, 1);
-    temperatureByHours = JSON.parse(JSON.stringify(weatherData)).hourly.temperature_2m.splice(0, 24);
-    weatherCodes = JSON.parse(JSON.stringify(weatherData)).daily.weathercode;
-    days = JSON.parse(JSON.stringify(weatherData)).daily.time;
-    hourlyTemperature = JSON.parse(JSON.stringify(weatherData)).hourly.temperature_2m;
-  }
+  const {
+    weathercode,
+    temperatureByHours,
+    weatherCodes,
+    days,
+    hourlyTemperature
+  } = weatherDataDestruct(weatherData);
 
   return {
     error, name, timezone, time, loading, weathercode, isLocated,
