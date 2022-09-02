@@ -4,6 +4,7 @@ import WeatherWidgetHeader from '../WeatherWidgetHeader/WeatherWidgetHeader';
 import WeatherWidgetTodayInfo from '../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo';
 import WeatherWidgetCards from '../WeatherWidgetCards/WeatherWidgetCards';
 import Loader from '../UI/Loader/Loader';
+import WidgetMenu from '../WidgetMenu/WidgetMenu';
 
 import style from './WidgetBody.module.scss';
 
@@ -14,7 +15,7 @@ const WidgetBody: React.FC = () => {
     weatherCodes, days, name, hourlyTemperature
   } = useWeatherWidget();
 
-  let Body = () => {
+  const Body = () => {
     return (
       <>
         <WeatherWidgetHeader {...{ name, timezone }} />
@@ -29,6 +30,7 @@ const WidgetBody: React.FC = () => {
   return (
     <div className={style.body}>
       <div className={style.wrapper}>
+        <WidgetMenu />
         {days ? <Body /> : <Loader variant='b' />}
       </div>
     </div>
