@@ -5,15 +5,15 @@ import s from './WidgetMenu.module.scss';
 
 const WidgetMenu: FC = () => {
 
-  const { ChangeLocation } = useActions();
+  const { changeLocation } = useActions();
   const [isActive, setIsActive] = useState(false);
 
   const buttonStyle = isActive ? `${s.button} ${s.buttonActive}` : s.button;
   const subMenuStyle = isActive ? `${s.subMenu} ${s.subMenuActive}` : s.subMenu;
 
-  const changeLocation = () => {
+  const setLocation = () => {
     setIsActive(false);
-    ChangeLocation();
+    changeLocation();
   };
 
   return (
@@ -28,7 +28,7 @@ const WidgetMenu: FC = () => {
         <img src="" alt="img" />
         <div
           className={s.link}
-          onClick={changeLocation}
+          onClick={setLocation}
         >
           <img src="" alt="img" />
           Change location

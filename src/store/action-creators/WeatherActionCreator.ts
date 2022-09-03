@@ -4,7 +4,7 @@ import { AxiosError } from 'axios';
 import { WeatherAction, WeatherActionTypes, LocationData } from '../../types/weather-types';
 import WeatherApi, { weatherRequest } from '../../api/weatherApi';
 
-export const FetchWeatherAction = (locationData: weatherRequest) => {
+export const fetchWeatherAction = (locationData: weatherRequest) => {
   return async (dispatch: Dispatch<WeatherAction>) => {
     try {
       dispatch({ type: WeatherActionTypes.FetchWeatherData });
@@ -20,10 +20,20 @@ export const FetchWeatherAction = (locationData: weatherRequest) => {
 };
 
 export function setLocationData(location: LocationData): WeatherAction {
+  localStorage.setItem('isLocated', 'true');
+  localStorage.setItem('latitude', `${location.latitude}`);
+  localStorage.setItem('longitude', `${location.longitude}`);
+  localStorage.setItem('name', `${location.name}`);
+  localStorage.setItem('timezone', `${location.timezone}`);
   return { type: WeatherActionTypes.FetchLocationData, payload: location }
 };
 
-export function ChangeLocation() {
+export function changeLocation() {
+  localStorage.removeItem('isLocated');
+  localStorage.removeItem('latitude');
+  localStorage.removeItem('longitude');
+  localStorage.removeItem('name');
+  localStorage.removeItem('timezone');
   const unlocate = { isLocated: false, name: '', latitude: null, longitude: null, timezone: '' }
   return { type: WeatherActionTypes.FetchLocationData, payload: unlocate }
 };

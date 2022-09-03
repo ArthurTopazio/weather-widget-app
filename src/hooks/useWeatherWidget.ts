@@ -7,7 +7,7 @@ import { weatherDataDestruct } from '../utils/weatherDataDestruct';
 
 export const useWeatherWidget = () => {
 
-  const { FetchWeatherAction } = useActions();
+  const { fetchWeatherAction } = useActions();
 
   const {
     error, locationData, loading, weatherData
@@ -17,7 +17,7 @@ export const useWeatherWidget = () => {
   const { start, end, time } = getWeek(timezone);
 
   useEffect(() => {
-    if (name) { FetchWeatherAction({ latitude, longitude, timezone, start, end }) }
+    if (name) { fetchWeatherAction({ latitude, longitude, timezone, start, end }) }
   }, [name]);
 
   const {

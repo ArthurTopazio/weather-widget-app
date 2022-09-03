@@ -1,8 +1,24 @@
+import { useEffect } from 'react';
 import WeatherWidget from './components/WeatherWidget/WeatherWidget';
+import { useActions } from './hooks/useAction';
+import { LocationData } from './types/weather-types';
 
 const App: React.FC = () => {
 
-  console.warn('menu like burg + unlockated, locale storage, visual upd, choose layout, adaptive on mobile');
+  console.warn('visual upd, choose layout, adaptive on mobile');
+
+  const { setLocationData } = useActions();
+  useEffect(() => {
+    if (localStorage.getItem('isLocated')) {
+      setLocationData({
+        isLocated: true,
+        name: localStorage.getItem('name'),
+        latitude: Number(localStorage.getItem('latitude')),
+        longitude: Number(localStorage.getItem('longitude')),
+        timezone: localStorage.getItem('timezone')
+      } as LocationData);
+    }
+  }, []);
 
   return (
     <>
