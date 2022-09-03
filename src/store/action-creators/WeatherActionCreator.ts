@@ -22,3 +22,8 @@ export const FetchWeatherAction = (locationData: weatherRequest) => {
 export function setLocationData(location: LocationData): WeatherAction {
   return { type: WeatherActionTypes.FetchLocationData, payload: location }
 };
+
+export function ChangeLocation() {
+  const unlocate = { isLocated: false, name: '', latitude: null, longitude: null, timezone: '' }
+  return { type: WeatherActionTypes.FetchLocationData, payload: unlocate }
+};

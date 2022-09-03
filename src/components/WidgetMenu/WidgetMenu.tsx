@@ -1,21 +1,39 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { useActions } from '../../hooks/useAction';
 
 import s from './WidgetMenu.module.scss';
 
 const WidgetMenu: FC = () => {
+
+  const { ChangeLocation } = useActions();
+  const [isActive, setIsActive] = useState(false);
+
+  const buttonStyle = isActive ? `${s.button} ${s.buttonActive}` : s.button;
+  const subMenuStyle = isActive ? `${s.subMenu} ${s.subMenuActive}` : s.subMenu;
+
+  const changeLocation = () => {
+    setIsActive(false);
+    ChangeLocation();
+  };
+
   return (
     <nav className={s.menu}>
-      ...
-      <ul className={s.topmenu}>
-        <li><a href="" className={s.down}>...</a>
-          <ul className={s.submenu}>
-            <li><a href="">Category</a></li>
-            <li><a href="">Author</a></li>
-            <li><a href="">Archive</a></li>
-            <li><a href="">Tags</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div
+        className={buttonStyle}
+        onClick={() => setIsActive(!isActive)}
+      >
+        <div>...</div>
+      </div>
+      <div className={subMenuStyle}>
+        <img src="" alt="img" />
+        <div
+          className={s.link}
+          onClick={changeLocation}
+        >
+          <img src="" alt="img" />
+          Change location
+        </div>
+      </div>
     </nav>
   )
 };
