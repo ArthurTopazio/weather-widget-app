@@ -46,6 +46,7 @@ h2 {
   outline: 0;
   border: 1px solid $bgcolorYellow;
   border-radius: $borderRadiusBoxes;
+  caret-color: $hColor;
 };
 
 .form__input::placeholder {
@@ -56,5 +57,21 @@ h2 {
 
 .form__input:focus {
   border-color: $hColor;
-  box-shadow: 0 0 4px $hColor;
+  animation-duration: 1.5s;
+  animation-name: shadowPuls;
+  animation-iteration-count: infinite;
 };
+
+@keyframes shadowPuls {
+  from {
+    box-shadow: 0 0 4px $hColor;
+  }
+
+  50% {
+    box-shadow: 0 0 10px $hColor;
+  }
+
+  to {
+    box-shadow: 0 0 4px $hColor;
+  }
+}
