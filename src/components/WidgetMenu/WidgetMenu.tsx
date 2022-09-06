@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { useActions } from '../../hooks/useAction';
 
 import s from './WidgetMenu.module.scss';
+import exitImg from './../../assets/vectors/other/exit.png';
 
 const WidgetMenu: FC = () => {
 
@@ -25,12 +26,12 @@ const WidgetMenu: FC = () => {
         <div>...</div>
       </div>
       <div className={subMenuStyle}>
-        <img src="" alt="img" />
+        Menu
         <div
           className={s.link}
           onClick={setLocation}
         >
-          <img src="" alt="img" />
+          <img src={exitImg} width={25} alt="img" />
           Change location
         </div>
       </div>

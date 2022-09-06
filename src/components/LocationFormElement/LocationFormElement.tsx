@@ -29,7 +29,7 @@ const LocationFormElement: React.FC<ElementTPD> = (props) => {
       className={style.wrapper}
       onClick={handleClick}
     >
-      <p>{`City:  ${name}, Country:  ${country}, Timezone:  ${timezone}`}</p>
+      <p>{name + ', ' + 'Country:  ' + country + '/' + timezone}</p>
     </div>
   );
 };
