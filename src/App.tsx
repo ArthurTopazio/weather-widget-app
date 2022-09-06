@@ -5,7 +5,7 @@ import { LocationData } from './types/weather-types';
 
 const App: React.FC = () => {
 
-  console.warn('visual upd, choose layout, adaptive on mobile');
+  console.warn('visual upd, choose layout, adaptive on mobile, surprise mf');
 
   const { setLocationData } = useActions();
   useEffect(() => {
