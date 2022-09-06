@@ -33,6 +33,7 @@
 .button div{
   position: relative;
   top: -7.5px;
+  left: 1px;
 }
 
 .menu:hover {
@@ -46,22 +47,27 @@
 }
 
 .subMenu {
-  width: 300px;
+  padding-top: 10px;
+  width: 0px;
   opacity: 0;
   min-height: 400px;
-  background-color: $hColor;
-  color: wheat;
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  color: $hColor;
   position: absolute;
   top: 54px;
-  right: -150px;
+  right: -5px;
   z-index: 1000;
-  border-radius: 20px 0 0 20px; 
+  border-radius: 10px 0 0 10px; 
   visibility: hidden;
-  box-shadow: inset 7px -7px 12px rgba(135, 160, 177, 0.5), 6px 6px 12px rgb(29 80 114 / 50%);
+  box-shadow: -3px 3px 20px rgb(29 80 114 / 50%);
   transition: 0.3s;
+  overflow: hidden;
+  font-size: 16px;
 }
 
 .subMenuActive {
+  width: 300px;
   visibility: visible;
   opacity: 1;
   right: -15px;
@@ -70,11 +76,16 @@
 .link {
   margin-top: 10px;
   padding: 5px;
+  padding-left: 20px;
   font-size: 15px;
   transition: 0.2s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
 .link:hover {
-  background-color: white;
-  color: $hColor;
+  background-color: $hColor;
+  color: white;
 }

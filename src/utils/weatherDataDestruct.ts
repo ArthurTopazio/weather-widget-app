@@ -10,5 +10,6 @@ export const weatherDataDestruct = (weatherData: any) => {
     hourlyTemperature = JSON.parse(JSON.stringify(weatherData)).hourly.temperature_2m;
   };
 
+
   return { weathercode, temperatureByHours, weatherCodes, days, hourlyTemperature };
 }; 

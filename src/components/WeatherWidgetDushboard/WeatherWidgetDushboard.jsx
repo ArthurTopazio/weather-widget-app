@@ -43,7 +43,10 @@ const WeatherWidgetDushboard = (props) => {
       options={{
         plugins: {
           legend: {
-            display: false
+            display: false,
+            labels: {
+              color: "blue"
+            }
           }
         },
         elements: {
@@ -56,11 +59,17 @@ const WeatherWidgetDushboard = (props) => {
             grid: {
               display: false,
             },
+            ticks: {
+              color: '#06498d'
+            }
           },
           y: {
             grid: {
               display: false,
             },
+            ticks: {
+              color: '#06498d'
+            }
           },
         },
         title: {
