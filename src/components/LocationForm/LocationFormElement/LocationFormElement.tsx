@@ -22,7 +22,9 @@ const LocationFormElement: React.FC<ElementTPD> = (props) => {
 
   const { name, latitude, longitude, timezone, country } = props.location_data;
 
-  const handleClick = () => { setLocationData({ name, latitude, longitude, timezone, isLocated: true }) };
+  const handleClick = () => {
+    setLocationData({ name, latitude, longitude, timezone, isLocated: true })
+  };
 
   return (
     <div

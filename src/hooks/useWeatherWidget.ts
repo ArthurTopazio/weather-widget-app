@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { usedTypedSelector } from './usedTypedSelector';
 import { useActions } from './useAction';
@@ -12,9 +12,12 @@ export const useWeatherWidget = () => {
   const {
     error, locationData, loading, weatherData
   } = usedTypedSelector(state => state.weather);
-
   const { name, latitude, longitude, timezone, isLocated } = locationData;
-  const { start, end, time } = getWeek(timezone);
+
+  const { start, end, time } = useMemo(() => {
+    return getWeek(timezone)
+  }, [timezone]);
+
 
   useEffect(() => {
     if (name) { fetchWeatherAction({ latitude, longitude, timezone, start, end }) }
@@ -26,7 +29,9 @@ export const useWeatherWidget = () => {
     weatherCodes,
     days,
     hourlyTemperature
-  } = weatherDataDestruct(weatherData);
+  } = useMemo(() => {
+    return weatherDataDestruct(weatherData);
+  }, [weatherData]);
 
   return {
     error, name, timezone, time, loading, weathercode, isLocated,
