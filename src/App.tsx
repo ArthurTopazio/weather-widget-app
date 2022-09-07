@@ -6,9 +6,8 @@ import { LocationData } from './types/weather-types';
 
 const App: React.FC = () => {
 
-  console.warn('visual upd, memo/cash data, choose layout, adaptive on mobile');
-
   const { setLocationData } = useActions();
+
   useEffect(() => {
     if (localStorage.getItem('isLocated')) {
       setLocationData({

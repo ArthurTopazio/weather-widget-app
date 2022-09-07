@@ -1,12 +1,15 @@
-@import "./../../assets/scss/variables.scss";
+@import "./../../../assets/scss/variables.scss";
 
 .body {
   margin: 0;
   background: linear-gradient(135deg, #eaf20a 10%, #ffbb00, #ff8000);
-  background-size: 400% 400%;
-  height: 100vh;
-  background-attachment: fixed;
+  background-size: cover;
+  background-attachment: scroll;
+  min-height: 100vh;
   animation: gradient 15s ease-in-out infinite;
+  @media screen and (orientation:landscape) and (max-device-width: 900px) {
+    height: 570px;
+  }
 };
 
 @keyframes gradient {
@@ -41,4 +44,9 @@
   @media (max-width: $smallBP) {
     width: 90%;
   }
+
+  @media screen and (orientation:landscape) and (max-device-width: 900px) {
+  width: 400px;
+  height: 500px;
+}
 };

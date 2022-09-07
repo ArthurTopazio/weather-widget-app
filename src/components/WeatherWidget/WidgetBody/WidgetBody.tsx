@@ -1,10 +1,10 @@
-import { useWeatherWidget } from '../../hooks/useWeatherWidget';
+import { useWeatherWidget } from '../../../hooks/useWeatherWidget';
 
-import WeatherWidgetHeader from '../WeatherWidgetHeader/WeatherWidgetHeader';
-import WeatherWidgetTodayInfo from '../WeatherWidgetTodayInfo/WeatherWidgetTodayInfo';
-import WeatherWidgetCards from '../WeatherWidgetCards/WeatherWidgetCards';
-import Loader from '../UI/Loader/Loader';
-import WidgetMenu from '../WidgetMenu/WidgetMenu';
+import Header from '../Header/Header';
+import TodayInfo from '../TodayInfo/TodayInfo';
+import Cards from '../Cards/Cards';
+import Loader from '../../UI/Loader/Loader';
+import Menu from '../Menu/Menu';
 
 import style from './WidgetBody.module.scss';
 
@@ -18,10 +18,10 @@ const WidgetBody: React.FC = () => {
   const Body = () => {
     return (
       <>
-        <WeatherWidgetHeader {...{ name, timezone }} />
-        <WeatherWidgetTodayInfo
+        <Header {...{ name, timezone }} />
+        <TodayInfo
           {...{ time, weathercode, temperatureByHours }} />
-        <WeatherWidgetCards
+        <Cards
           {...{ weatherCodes, days, hourlyTemperature }} />
       </>
     )
@@ -30,7 +30,7 @@ const WidgetBody: React.FC = () => {
   return (
     <div className={style.body}>
       <div className={style.wrapper}>
-        <WidgetMenu />
+        <Menu />
         {days ? <Body /> : <Loader variant='b' />}
       </div>
     </div>

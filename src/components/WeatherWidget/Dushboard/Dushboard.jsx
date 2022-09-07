@@ -20,7 +20,7 @@ ChartJS.register(
   Legend
 );
 
-const WeatherWidgetDushboard = (props) => {
+const Dushboard = (props) => {
 
   const lineChartData = {
     labels: ['1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12AM',
@@ -84,4 +84,4 @@ const WeatherWidgetDushboard = (props) => {
   );
 };
 
-export default WeatherWidgetDushboard;
+export default Dushboard;
