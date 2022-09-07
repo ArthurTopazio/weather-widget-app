@@ -1,10 +1,9 @@
 import { useMemo } from 'react';
 
 import Dushboard from '../Dushboard/Dushboard';
+import { getPictureByWeathercode } from '../../../utils/getPictByWeathercode';
 
 import style from './TodayInfo.module.scss';
-import mainTheme from '../../../assets/vectors/main_theme.png';
-
 
 interface TodayInfoTPD {
   time: string,
@@ -17,6 +16,9 @@ const TodayInfo: React.FC<TodayInfoTPD> = ({
   weathercode,
   temperatureByHours
 }) => {
+
+  const pictureSrc = getPictureByWeathercode(weathercode);
+
 
   const hour = +time.slice(0, 2);
 
@@ -32,7 +34,7 @@ const TodayInfo: React.FC<TodayInfoTPD> = ({
         </div>
         <img
           className={style.today__data_img}
-          src={mainTheme}
+          src={pictureSrc}
           alt='weather picture' />
       </div>
       <div className={style.dushboard}>

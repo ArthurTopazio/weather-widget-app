@@ -1,7 +1,8 @@
 import moment from 'moment';
 
+import { getPictureByWeathercode } from '../../../utils/getPictByWeathercode';
+
 import style from './Cards.module.scss';
-import image from '../../../assets/vectors/main_theme.png';
 
 interface CardTPD {
   weatherCode: string,
@@ -17,13 +18,19 @@ const Card: React.FC<CardTPD> = ({
   today = false
 }) => {
 
+  const pictureSrc = getPictureByWeathercode(weatherCode);
+
+
   return (
     <div className={`${style.week__cards_item} ${today ? style.today : null}`}>
       <p className={style.cards__item_day} >
         {moment(day).format('dddd').slice(0, 3)}
       </p>
-      <img className={`${style.cards__item_img} ${today ? style.img__today : null}`}
-        src={image} alt='pict' />
+      <img
+        className={`${style.cards__item_img} ${today ? style.img__today : null}`}
+        src={pictureSrc}
+        alt='pict'
+      />
       <p className={style.cards__item_tempDay}>
         {`${temperatureByHour[12]}`}
       </p>

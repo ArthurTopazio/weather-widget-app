@@ -6,8 +6,6 @@ import { LocationData } from './types/weather-types';
 
 const App: React.FC = () => {
 
-  console.warn('memo/cash data, weather codes');
-
   const { setLocationData } = useActions();
 
   useEffect(() => {
