@@ -4,7 +4,7 @@ import { useActions } from '../../hooks/useAction';
 import useDebounce from '../../hooks/useDebounce';
 import { usedTypedSelector } from '../../hooks/usedTypedSelector';
 
-import LocationFormElement from '../LocationFormElement/LocationFormElement';
+import LocationFormElement from './LocationFormElement/LocationFormElement';
 import Loader from '../UI/Loader/Loader';
 
 import style from './LocationForm.module.scss';

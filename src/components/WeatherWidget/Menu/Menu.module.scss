@@ -1,4 +1,4 @@
-@import './../../assets/scss/variables.scss';
+@import './../../../assets/scss/variables.scss';
 
 .menu {
   width: 40px;
@@ -67,7 +67,7 @@
 }
 
 .subMenuActive {
-  width: 300px;
+  width: 350px;
   visibility: visible;
   opacity: 1;
   right: -15px;

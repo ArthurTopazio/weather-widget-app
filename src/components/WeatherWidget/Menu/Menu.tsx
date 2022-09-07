@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
-import { useActions } from '../../hooks/useAction';
+import { useActions } from '../../../hooks/useAction';
 
-import s from './WidgetMenu.module.scss';
-import exitImg from './../../assets/vectors/other/exit.png';
+import s from './Menu.module.scss';
+import exitImg from './../../../assets/vectors/other/exit.png';
 
-const WidgetMenu: FC = () => {
+const Menu: FC = () => {
 
   const { changeLocation } = useActions();
   const [isActive, setIsActive] = useState(false);
@@ -39,4 +39,4 @@ const WidgetMenu: FC = () => {
   )
 };
 
-export default WidgetMenu;
+export default Menu;

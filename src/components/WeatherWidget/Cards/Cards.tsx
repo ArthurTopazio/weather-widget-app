@@ -1,7 +1,7 @@
 import moment from 'moment';
 
-import style from './WeatherWidgetCards.module.scss';
-import image from '../../assets/vectors/main_theme.png';
+import style from './Cards.module.scss';
+import image from '../../../assets/vectors/main_theme.png';
 
 interface CardTPD {
   weatherCode: string,
@@ -10,7 +10,12 @@ interface CardTPD {
   today?: boolean,
 };
 
-const Card: React.FC<CardTPD> = ({ weatherCode, day, temperatureByHour, today = false }) => {
+const Card: React.FC<CardTPD> = ({
+  weatherCode,
+  day,
+  temperatureByHour,
+  today = false
+}) => {
 
   return (
     <div className={`${style.week__cards_item} ${today ? style.today : null}`}>
@@ -35,7 +40,7 @@ interface CardsTPD {
   hourlyTemperature: any[],
 };
 
-const WeatherWidgetCards: React.FC<CardsTPD> = ({ weatherCodes, days, hourlyTemperature }) => {
+const Cards: React.FC<CardsTPD> = ({ weatherCodes, days, hourlyTemperature }) => {
 
   const cardsElements = days.map((item, index) => <Card key={item} {
     ...{
@@ -56,4 +61,4 @@ const WeatherWidgetCards: React.FC<CardsTPD> = ({ weatherCodes, days, hourlyTemp
   )
 };
 
-export default WeatherWidgetCards;
+export default Cards;
